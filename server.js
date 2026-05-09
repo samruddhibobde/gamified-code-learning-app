@@ -1,7 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+
 const connectDB = require('./config/db');
+
 const userRoutes = require('./routes/userRoutes');
 const tutorialRoutes = require('./routes/tutorialRoutes');
 const challengeRoutes = require('./routes/challengeRoutes');
@@ -12,15 +14,19 @@ const app = express();
 
 console.log('Starting CodeQuest Backend Server...');
 
-// Connect to Database
+// Connect Database
 connectDB();
 
 // Middleware
 app.use(cors({
-  origin: "http://localhost:8080",
+  origin: [
+    "http://localhost:8080",
+    "https://your-vercel-app.vercel.app"
+  ],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
 app.use(express.json());
 
 // Basic Route
@@ -28,26 +34,23 @@ app.get('/', (req, res) => {
   res.json({ message: 'CodeQuest Backend Running' });
 });
 
-// User Routes
+// Routes
 console.log('Mounting user routes at /api/users');
 app.use('/api/users', userRoutes);
 
-// Tutorial Routes
 console.log('Mounting tutorial routes at /api/tutorials');
 app.use('/api/tutorials', tutorialRoutes);
 
-// Challenge Routes
 console.log('Mounting challenge routes at /api/challenges');
 app.use('/api/challenges', challengeRoutes);
 
-// Problem Routes
 console.log('Mounting problem routes at /api/problems');
 app.use('/api/problems', problemRoutes);
 
-// Support Routes
 console.log('Mounting support routes at /api/support');
 app.use('/api/support', supportRoutes);
 
+// Start Server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
