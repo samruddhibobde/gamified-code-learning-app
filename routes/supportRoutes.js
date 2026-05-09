@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const SupportRequest = require("../models/SupportRequest");
-const User = require("../models/user");
+const User = require("../models/User");
 const authMiddleware = require("../middleware/authMiddleware");
 
 console.log("Support routes loaded successfully");

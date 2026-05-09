@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Tutorial = require("../models/tutorial");
-const User = require("../models/user");
+const User = require("../models/User");
 const authMiddleware = require("../middleware/authMiddleware");
 
 // GET /api/tutorials - Get all tutorials
