@@ -9,7 +9,8 @@ router.get("/", async (req, res) => {
   try {
 
     console.log("Fetching all tutorials");
-
+    console.log("MONGOOSE DB NAME:", Tutorial.db.name);
+    console.log("MONGOOSE COLLECTION:", Tutorial.collection.name);
     const tutorials = await Tutorial.find().sort({ createdAt: 1 });
 
     console.log("TUTORIAL COUNT:", tutorials.length);
