@@ -5,8 +5,8 @@ const User = require("../models/User");
 const authMiddleware = require("../middleware/authMiddleware");
 
 // GET /api/tutorials - Get all tutorials
-router.get("/", authMiddleware, async (req, res) => {
-  try {
+router.get("/", async (req, res) => {
+    try {
     console.log("Fetching all tutorials");
     
     const tutorials = await Tutorial.find().sort({ createdAt: 1 });
