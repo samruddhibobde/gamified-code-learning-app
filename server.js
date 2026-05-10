@@ -21,7 +21,7 @@ connectDB();
 app.use(cors({
   origin: [
     "http://localhost:8080",
-    "https://your-vercel-app.vercel.app"
+    "https://quest-code-unlocked.vercel.app/"
   ],
   credentials: true,
   allowedHeaders: ["Content-Type", "Authorization"]
