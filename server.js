@@ -19,12 +19,8 @@ connectDB();
 
 // Middleware
 app.use(cors({
-  origin: [
-    "http://localhost:8080",
-    "https://quest-code-unlocked.vercel.app/"
-  ],
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: "*",
+  credentials: true
 }));
 
 app.use(express.json());
