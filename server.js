@@ -19,7 +19,11 @@ connectDB();
 
 // Middleware
 app.use(cors({
-  origin: "*",
+  origin: [
+    "http://localhost:8080",
+    "https://quest-code-unlocked.vercel.app",
+    "https://quest-code-unlocked-lzkp1fat1-samruddhibs-projects.vercel.app"
+  ],
   credentials: true
 }));
 
