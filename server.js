@@ -19,12 +19,9 @@ connectDB();
 
 // Middleware
 app.use(cors({
-  origin: [
-    "http://localhost:8080",
-    "https://quest-code-unlocked.vercel.app",
-    "https://quest-code-unlocked-lzkp1fat1-samruddhibs-projects.vercel.app"
-  ],
-  credentials: true
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use(express.json());
