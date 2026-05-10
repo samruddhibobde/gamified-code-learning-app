@@ -6,16 +6,21 @@ const authMiddleware = require("../middleware/authMiddleware");
 
 // GET /api/tutorials - Get all tutorials
 router.get("/", async (req, res) => {
-    try {
+  try {
+
     console.log("Fetching all tutorials");
-    
+
     const tutorials = await Tutorial.find().sort({ createdAt: 1 });
-    
+
+    console.log("TUTORIAL COUNT:", tutorials.length);
+    console.log("TUTORIAL DATA:", tutorials);
+
     res.json({
       message: "Tutorials fetched successfully",
       tutorials,
       count: tutorials.length
     });
+
   } catch (error) {
     console.error("Fetch tutorials error:", error.message);
     res.status(500).json({ error: error.message });
