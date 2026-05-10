@@ -10,6 +10,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 router.post("/register", async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
+    console.log("REGISTER REQUEST BODY:", req.body);
 
     // validation
     if (!name || !email || !password) {
